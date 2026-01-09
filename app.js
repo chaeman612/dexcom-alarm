@@ -129,11 +129,30 @@ function formatDate(ms) {
     return `${d.getMonth() + 1}월 ${d.getDate()}일(${days[d.getDay()]}) ${d.getHours() < 12 ? '오전' : '오후'} ${d.getHours() % 12 || 12}:${String(d.getMinutes()).padStart(2, '0')}`;
 }
 
+// datetime-local 입력을 위한 로컬 시간 포맷팅 (YYYY-MM-DDTHH:mm)
+function toISOStringLocal(ms) {
+    const date = new Date(ms);
+    const offset = date.getTimezoneOffset() * 60000; // offset in milliseconds
+    const localISOTime = (new Date(date - offset)).toISOString().slice(0, 16);
+    return localISOTime;
+}
+
 // 모달 제어
 function openNotificationSettings(index) {
     activeModalChildIndex = index;
     const modal = document.getElementById('settings-modal');
-    document.getElementById('notif-days').value = children[index].settings.daysBefore;
+    const child = children[index];
+
+    document.getElementById('notif-days').value = child.settings.daysBefore;
+
+    // 시작 시간 수정 필드 설정
+    const editStartTimeInput = document.getElementById('edit-start-time');
+    if (child.startTime) {
+        editStartTimeInput.value = toISOStringLocal(child.startTime);
+    } else {
+        editStartTimeInput.value = ''; // 센서가 시작되지 않은 경우 비움
+    }
+
     modal.style.display = 'flex';
 }
 
@@ -143,10 +162,19 @@ function closeModal() {
 
 function saveSettings() {
     const days = parseInt(document.getElementById('notif-days').value);
+    const startTimeStr = document.getElementById('edit-start-time').value;
+
     children[activeModalChildIndex].settings.daysBefore = days;
+
+    // 시작 시간 업데이트 (값이 있는 경우에만)
+    if (startTimeStr) {
+        children[activeModalChildIndex].startTime = new Date(startTimeStr).getTime();
+    }
+
     saveData();
+    updateUI();
     closeModal();
-    alert('알림 설정이 저장되었습니다.');
+    alert('설정이 저장되었습니다.');
 }
 
 // 페이지 로드 시 실행

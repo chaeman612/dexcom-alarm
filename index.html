@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>덱스컴 알람</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
@@ -11,13 +13,16 @@
     <link rel="apple-touch-icon" href="icon-192.png">
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         <header>
             <h1>덱스컴 관리</h1>
             <button id="settings-btn" class="icon-btn">
                 <svg viewBox="0 0 24 24" width="24" height="24">
-                    <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-5-9h10v2H7v-2z" fill="currentColor"/>
+                    <path
+                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-5-9h10v2H7v-2z"
+                        fill="currentColor" />
                 </svg>
             </button>
         </header>
@@ -29,7 +34,10 @@
                     <h2 class="name">첫째</h2>
                     <span class="status-badge" data-status="idle">대기 중</span>
                     <button class="settings-mini-btn" onclick="openNotificationSettings(0)">
-                        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 22a2 2 0 0 1-2-2h4a2 2 0 0 1-2 2zm6-6v2H6v-2l2-2V9a4 4 0 1 1 8 0v5l2 2z" fill="currentColor"/></svg>
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                            <path d="M12 22a2 2 0 0 1-2-2h4a2 2 0 0 1-2 2zm6-6v2H6v-2l2-2V9a4 4 0 1 1 8 0v5l2 2z"
+                                fill="currentColor" />
+                        </svg>
                     </button>
                 </div>
                 <div class="timer-display">
@@ -59,7 +67,10 @@
                     <h2 class="name">둘째</h2>
                     <span class="status-badge" data-status="idle">대기 중</span>
                     <button class="settings-mini-btn" onclick="openNotificationSettings(1)">
-                        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 22a2 2 0 0 1-2-2h4a2 2 0 0 1-2 2zm6-6v2H6v-2l2-2V9a4 4 0 1 1 8 0v5l2 2z" fill="currentColor"/></svg>
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                            <path d="M12 22a2 2 0 0 1-2-2h4a2 2 0 0 1-2 2zm6-6v2H6v-2l2-2V9a4 4 0 1 1 8 0v5l2 2z"
+                                fill="currentColor" />
+                        </svg>
                     </button>
                 </div>
                 <div class="timer-display">
@@ -96,6 +107,11 @@
                         <span>일 전</span>
                     </div>
                 </div>
+                <div class="setting-group" id="edit-start-time-group">
+                    <label>시작 시간 수정</label>
+                    <input type="datetime-local" id="edit-start-time">
+                    <p class="input-hint">센서 시작 시간을 직접 수정할 수 있습니다.</p>
+                </div>
                 <div class="modal-actions">
                     <button class="secondary-btn" onclick="closeModal()">취소</button>
                     <button class="primary-btn" onclick="saveSettings()">저장</button>
@@ -105,4 +121,5 @@
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>
