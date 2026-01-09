@@ -1,0 +1,220 @@
+:root {
+    --bg-color: #f2f2f7;
+    --card-bg: #ffffff;
+    --primary-color: #007aff;
+    --text-primary: #1c1c1e;
+    --text-secondary: #8e8e93;
+    --accent-green: #34c759;
+    --accent-orange: #ff9500;
+    --accent-red: #ff3b30;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    margin: 0;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#app {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    padding: 8px;
+    cursor: pointer;
+}
+
+#dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.child-card {
+    background: var(--card-bg);
+    border-radius: 28px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header .name {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.status-badge {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 10px;
+    background: #f2f2f7;
+}
+
+.status-badge[data-status="active"] {
+    background: rgba(52, 199, 89, 0.15);
+    color: var(--accent-green);
+}
+
+.timer-display {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 20px 0;
+    background: linear-gradient(145deg, #f8f8fa, #ffffff);
+    border-radius: 20px;
+}
+
+.timer-display .remaining {
+    font-size: 36px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -1px;
+}
+
+.timer-display .label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.info-label {
+    color: var(--text-secondary);
+}
+
+.info-value {
+    font-weight: 600;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 16px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--primary-color);
+    color: white;
+    transition: opacity 0.2s;
+}
+
+.primary-btn:active {
+    opacity: 0.8;
+}
+
+.start-btn[data-active="true"] {
+    background: #e5e5ea;
+    color: var(--text-primary);
+}
+
+.settings-mini-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 5px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 340px;
+    border-radius: 24px;
+    padding: 24px;
+}
+
+.setting-group {
+    margin: 20px 0;
+}
+
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.stepper input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.secondary-btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: #f2f2f7;
+    font-weight: 600;
+}

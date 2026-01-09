@@ -1,0 +1,21 @@
+{
+  "name": "덱스컴 알람",
+  "short_name": "덱스컴",
+  "description": "자녀의 덱스컴 센서 주기를 관리하는 앱",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f2f2f7",
+  "theme_color": "#007aff",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3209/3209144.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3209/3209144.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
